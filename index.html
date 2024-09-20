@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Getting Connected with Meshtastic</title>
+    <link data-rh="true" rel="icon" href="images/favicon.ico">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/meshtastic.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style type="text/css">
+      .smaller-table table {
+        font-size: 20px;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+          <h2>Getting Connected with Meshtastic</h2>
+          Matt Robinson (brimstone)
+          @brimstone@mastodon.social
+        </section>
+
+				<section>
+
+          <section><h2>History</h2></section>
+
+          <section>
+            <h2>LoRa</h2>
+            <h3><u>Lo</u>ng <u>Ra</u>nge</h3>
+            <ul>
+              <li>Low power wireless communication protocol</li>
+              <li>~10km (6.2mi) in perfect conditions</li>
+              <li>More like 2mi in Atlanta trees</li>
+              <li>Created by Cycleo, Grenoble, France</li>
+              <li>Patented in 2014</li>
+              <li>Now owned by Semtech</li>
+            </ul>
+          </section>
+
+          <section data-markdown class="smaller-table">
+            <textarea data-template>
+              ## OSI Model
+
+              | # | OSI          | LoRa                | LoRaWAN                 | Meshtastic |
+              | - | ------------ | ------------------- | ----------------------- | ---------- |
+              | 7 | Application  | -                   | -                       | -          |
+              | 6 | Presentation | -                   | -                       | -          |
+              | 5 | Session      | -                   | -                       | -          |
+              | 4 | Transport    | -                   | -                       | -          |
+              | 3 | Network      | -                   | MAC, Logical Addressing | Node ID    |
+              | 2 | Data Link    | Physical Addressing | -                       | -          |
+              | 1 | Physical     | Binary Transmission | -                       | -          |
+
+              _I think?_
+            </textarea>
+          </section>
+
+          <section>
+            <h2>LoRa Alliance</h2>
+            <ul>
+              <li>Amazon Web Services</li>
+              <li>Cisco</li>
+              <li>a Comcast Company</li>
+              <li>Microsoft</li>
+              <li>MikroTik</li>
+              <li>Semtech</li>
+              <li>The Things Industries</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Notable Applications</h2>
+            <ul>
+              <li>Crypto mining via Helium</li>
+              <li>Amazon Sidewalk</li>
+            </ul>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ## Region Frequency Bands
+
+              | Country | Notation  | Range         |
+              | ------- | -------   | ------------- |
+              | US      | **915** Mhz | 902 - 928 Mhz |
+              | AU      | 923 MHz   | **915** - 928 MHz |
+              | EU      | 868 Mhz   | 863 - 870 MHz |
+              | EU      | 433 Mhz   | 433 - 434 MHz |
+              | CN      | 470 MHz   | 470 - 510 MHz |
+
+              * EU 433 is in 70cm Ham Radio Band
+              * Disable encryption
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Devices</h2>
+            <ul>
+              <li><a href="https://meshtastic.org/docs/hardware/devices/">Official Devices Docs</a></li>
+              <li>42 boards supported by firmware</li>
+            </ul>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ## Microcontrollers
+
+              | mμ       | Programming | Energy&nbsp;Usage | WiFi?   |
+              | -------- | ----------- | ------------ | ------- |
+              | ESP32    | esptool     | 100~200mA    | on&nbsp;chip |
+              | nRF52840 | UF2         | 9~20mA       | nope!   |
+
+              [Andy Kirby - Heltec T114 Power Consuptions Tests](http://youtu.be/EEXxiD1CSDM?si=FSv_hx5bEMqyhDQd)
+
+            </textarea>
+          </section>
+
+          <section>
+            <h2>Radio</h2>
+            <ul>
+              <li>Everyone uses the SX1262</li>
+              <li>RFM96W is also a thing, I guess</li>
+            </ul>
+          </section>
+
+          <section data-markdown class="smaller-table">
+            <textarea data-template>
+              ## Built Boards
+
+              | Manufacturer   | Model           | Price    | mμ       | LCD?      | GPS?         | Battery?   | Solar?   |
+              | -------------- | --------------- | -------- | -------- | --------- | ------------ | ---------- | -------- |
+              | Heltec         | v3              | ~$17     | ESP32-S3 | OLED      | Solder It    | 2*1.25 JST | No       |
+              | Heltec         | T114            | $27~$40  | nRF52840 | Color TFT | Dongle       |            |          |
+              | Rak Wireless   | RAK4631         | $30~$61  | nRF52840 | Module    | Module       | Depends!   | Depends! |
+              | B&Q Consulting | Station G2      | $109     | ESP32-S3 | 1.3" OLED | GROVE Module |            |          |
+              | LilyGo         | T-Beam S3-Core  |          |          |           |              |            |          |
+              | LilyGo         | T-Echo          |          |          |           |              |            |          |
+              | LilyGo         | T-Deck          | $60~$140 | ESP32-S3 | Color TFT | Solder It    | 2*1.25 JST | No       |
+
+            </textarea>
+          </section>
+
+          <section>
+            <h2>Heltec</h2>
+            <h3>v3 & T114</h3>
+            <img style="width: 45%" src="images/heltec.v3.png" />
+            <img style="width: 45%" src="images/heltec.t114.png" />
+          </section>
+
+          <section>
+            <h2>Rak Wireless</h2>
+            <h3>RAK4631 & Starter Kit</h3>
+            <img style="width: 45%" src="images/rak.rak4631.png" />
+            <img style="width: 45%" src="images/rak.starter.png" />
+          </section>
+
+          <section>
+            <h2>Rak Wireless</h2>
+            <h3>WisBlock</h3>
+            <img src="images/rak.wisblock.gif" />
+          </section>
+
+          <section>
+            <h2>B&Q Consulting</h2>
+            <h3>Station G2</h3>
+            <img style="width: 30%" src="images/station.g2.jpg" />
+          </section>
+
+          <section><h2>LilyGo</h2></section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Flashing the firmware</h2>
+            <ul>
+              <li><a href="https://flasher.meshtastic.org">flasher.meshtastic.org</a> Chrome/Edge</li>
+              <li><code>pip install esptool</code></li>
+              <li><code>cp firmware.uf2 /mnt/nRF52840</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Initial Pairing</h2>
+            <ul>
+              <li><a href="https://client.meshtastic.org">client.meshtastic.org</a> Chrome/Edge</li>
+              <li>Mobile app via BLE</li>
+              <ul>
+                <li>PIN on screen</li>
+                <li>PIN 123456</li>
+                <li>Check serial output</li>
+              </ul>
+              <li><code>pip install meshtastic</code></li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Channel Options</h2>
+            <ul>
+              <li>LONG_FAST</li>
+              <li>it's fine.</li>
+              <li>Bandwidth</li>
+              <li>Spread Factor</li>
+              <li>Coding Rate</li>
+              <li>it's fine.</li>
+              <li>SHORT_FAST @ DEF CON</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Role</h2>
+            <ul>
+              <li>CLIENT</li>
+              <li>CLIENT_MUTE</li>
+              <li>ROUTER < 2.4?</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Settings</h2>
+            <ul>
+              <li>lora.hopLimit = 7 (max)</li>
+              <li>device.tzdef = EST5EDT,M3.2.0/2:00:00,M11.1.0/2:00:00</li>
+              <li>device.ledHeartbeatDisabled = true</li>
+              <li>serial.enabled = true</li>
+              <li>neighborInfo.enabled = true</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Antennas</h2>
+          </section>
+        </section>
+
+        <section>
+          <section><h2>Where to buy</h2></section>
+
+          <section>
+            <h2>Direct from Manufacturer</h2>
+          </section>
+
+          <section>
+            <h2>Muzi Works</h2>
+            <ul>
+              <li>Based in Atlanta, GA</li>
+              <li>Official for Heltec</li>
+              <li>Pretty cases</li>
+              <li>Doesn't participate in our mesh</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Rokland</h2>
+            <ul>
+              <li>Based in Gainsville, FL</li>
+              <li>Heltec, RAK, LilyGo</li>
+              <li>Antennas!</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Etsy</h2>
+            <ul>
+              <li>3D printed cases</li>
+              <li>fully assembled devices</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>FIN</h2>
+            Questions?
+          </section>
+        </section>
+
+        <!--
+        <section>
+          <section>
+          </section>
+          <section></section>
+        </section>
+        -->
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script src="livereload.js"></script>
+	</body>
+</html>
