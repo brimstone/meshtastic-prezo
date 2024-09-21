@@ -25,8 +25,9 @@
 
 				<section>
           <h2>Getting Connected with Meshtastic</h2>
-          Matt Robinson (brimstone)
-          @brimstone@mastodon.social
+          Matt Robinson (brimstone)<br />
+          @brimstone@mastodon.social<br />
+          <a href="https://brimstone.github.io/meshtastic-prezo">brimstone.github.io/meshtastic-prezo</a>
         </section>
 
 				<section>
@@ -97,7 +98,7 @@
               | EU      | 433 Mhz   | 433 - 434 MHz |
               | CN      | 470 MHz   | 470 - 510 MHz |
 
-              * EU 433 is in 70cm Ham Radio Band
+              * EU 433 is in US 70cm Ham Radio Band
               * Disable encryption
             </textarea>
           </section>
@@ -138,15 +139,15 @@
             <textarea data-template>
               ## Built Boards
 
-              | Manufacturer   | Model           | Price    | mμ       | LCD?      | GPS?         | Battery?   | Solar?   |
-              | -------------- | --------------- | -------- | -------- | --------- | ------------ | ---------- | -------- |
-              | Heltec         | v3              | ~$17     | ESP32-S3 | OLED      | Solder It    | 2*1.25 JST | No       |
-              | Heltec         | T114            | $27~$40  | nRF52840 | Color TFT | Dongle       |            |          |
-              | Rak Wireless   | RAK4631         | $30~$61  | nRF52840 | Module    | Module       | Depends!   | Depends! |
-              | B&Q Consulting | Station G2      | $109     | ESP32-S3 | 1.3" OLED | GROVE Module |            |          |
-              | LilyGo         | T-Beam S3-Core  |          |          |           |              |            |          |
-              | LilyGo         | T-Echo          |          |          |           |              |            |          |
-              | LilyGo         | T-Deck          | $60~$140 | ESP32-S3 | Color TFT | Solder It    | 2*1.25 JST | No       |
+              | Manufacturer   | Model           | Price    | mμ       | LCD?         | GPS?         | Battery?   | Solar?   |
+              | -------------- | --------------- | -------- | -------- | ------------ | ------------ | ---------- | -------- |
+              | Heltec         | v3              | ~$17     | ESP32-S3 | OLED         | Solder It    | 2*1.25 JST | No       |
+              | Heltec         | T114            | $27~$40  | nRF52840 | Color TFT    | Dongle       | 2*1.25 JST | Yes      |
+              | Rak Wireless   | RAK4631         | $30~$61  | nRF52840 | Module       | Module       | Depends!   | Depends! |
+              | B&Q Consulting | Station G2      | $109     | ESP32-S3 | 1.3" OLED    | GROVE Module | No         | No?      |
+              | LilyGo         | T-Beam Supreme  | $34~$75  | ESP32-S3 | 1.3" OLED    | Yes          | 18650      | No?      |
+              | LilyGo         | T-Echo          | $55      | nRF52840 | 1.54 E-Paper | Yes          | 850mAh     | No       |
+              | LilyGo         | T-Deck          | $60~$140 | ESP32-S3 | Color TFT    | Solder It    | 2*1.25 JST | No       |
 
             </textarea>
           </section>
@@ -177,7 +178,23 @@
             <img style="width: 30%" src="images/station.g2.jpg" />
           </section>
 
-          <section><h2>LilyGo</h2></section>
+          <section>
+            <h2>LilyGo</h2>
+            <h3>T-Echo</h3>
+            <img style="width: 50%" src="images/lilygo.t-echo.png" />
+          </section>
+
+          <section>
+            <h2>LilyGo</h2>
+            <h3>T-Beam</h3>
+            <img style="width: 60%" src="images/lilygo.t-beam.webp" />
+          </section>
+
+          <section>
+            <h2>LilyGo</h2>
+            <h3>T-Deck</h3>
+            <img style="width: 60%" src="images/lilygo.t-deck.png" />
+          </section>
 
         </section>
 
@@ -205,6 +222,17 @@
             </ul>
           </section>
 
+        </section>
+
+        <section>
+          <section>
+            <h2>Initial Setup</h2>
+            <ul>
+              <li>Region - US</li>
+              <li>Name</li>
+              <li>Short name - 4 bytes, emoji?</li>
+            </ul>
+          </section>
         </section>
 
         <section>
@@ -247,6 +275,11 @@
         <section>
           <section>
             <h2>Antennas</h2>
+            <ul>
+              <li><a href="https://github.com/meshtastic/antenna-reports">antenna-reports repo</a></li>
+            </ul>
+            <br />
+            <i>TODO</i>
           </section>
         </section>
 
