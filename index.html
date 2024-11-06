@@ -25,10 +25,36 @@
 
 				<section>
           <h2>Getting Connected with Meshtastic</h2>
+          <table>
+            <tr><td style="vertical-align: top">
           Matt Robinson (brimstone)<br />
           @brimstone@mastodon.social<br />
           <a href="https://brimstone.github.io/meshtastic-prezo">brimstone.github.io/meshtastic-prezo</a>
+              </td><td>
+          <img src="images/qr-code.github.png"/>
+              </td></tr>
+          </table>
         </section>
+
+				<section>
+          <section><h2>Ah ha!</h2></section>
+
+          <section>
+            <img src="images/gmaps.tuscany-resortsworld.png" />
+          </section>
+
+          <section>
+            <h2>mtnme.sh</h2>
+            <img src="images/mtnmsh.map.png" />
+          </section>
+
+          <section>
+            <h2>Meshville, TN</h2>
+            <a href="https://meshville.org/">meshville.org</a>
+            <img src="images/meshville.map.png" />
+          </section>
+				</section>
+
 
 				<section>
 
@@ -196,6 +222,24 @@
             <img style="width: 60%" src="images/lilygo.t-deck.png" />
           </section>
 
+          <section>
+            <h2>Sensecap</h2>
+            <h3>t1000</h3>
+            <img style="width: 35%" src="images/sensecap.t1000.jpg" />
+          </section>
+
+          <section>
+            <h2>Raw</h2>
+            <h3>E22-900M30S</h3>
+            <img src="images/e22-900m30s.png" />
+          </section>
+
+          <section>
+            <h2>MeshADV</h2>
+            <a href="https://github.com/chrismyers2000/MeshAdv-Pi-Hat">github.com/chrismyers2000/MeshAdv-Pi-Hat</a>
+            <img style="width: 60%" src="images/meshadv.png" />
+          </section>
+
         </section>
 
         <section>
@@ -240,33 +284,33 @@
           <section>
             <h2>Channel Options</h2>
             <ul>
-              <li>LONG_FAST</li>
+              <li>LONG_FAST (1.07 kbps)</li>
               <li>it's fine.</li>
               <li>Bandwidth</li>
               <li>Spread Factor</li>
               <li>Coding Rate</li>
               <li>it's fine.</li>
-              <li>SHORT_FAST @ DEF CON</li>
+              <li>SHORT_FAST @ DEF CON (10.94 kbps)</li>
             </ul>
           </section>
 
           <section>
             <h2>Role</h2>
             <ul>
-              <li>CLIENT</li>
-              <li>CLIENT_MUTE</li>
-              <li>ROUTER < 2.4?</li>
+              <li>CLIENT (stationary, relay messages)</li>
+              <li>CLIENT_MUTE (moving, no relay)</li>
             </ul>
           </section>
 
           <section>
             <h2>Settings</h2>
             <ul>
-              <li>lora.hopLimit = 7 (max)</li>
+              <li>serial.enabled = true</li>
               <li>device.tzdef = EST5EDT,M3.2.0/2:00:00,M11.1.0/2:00:00</li>
               <li>device.ledHeartbeatDisabled = true</li>
-              <li>serial.enabled = true</li>
               <li>neighborInfo.enabled = true</li>
+              <li>lora.hopLimit = 7 (max)</li>
+              <li>Some meshes may suggest different settings</li>
             </ul>
           </section>
 
@@ -276,11 +320,39 @@
           <section>
             <h2>Antennas</h2>
             <ul>
-              <li><a href="https://github.com/meshtastic/antenna-reports">antenna-reports repo</a></li>
+              <li>again, the <a href="https://meshtastic.org/docs/hardware/antennas/">docs</li>
+              <li><a href="https://github.com/meshtastic/antenna-reports">github.com/meshtastic/antenna-reports</a> repo</li>
+              <li>SMA for mobile units, N for stations</li>
             </ul>
-            <br />
-            <i>TODO</i>
           </section>
+
+          <section>
+            <h2>SMA / RP-SMA</h2>
+            <a href="https://blog.linitx.com/what-are-sma-rp-sma-connectors-and-whats-the-difference/"><img style="width: 70%" src="images/sma-rp-sma.jpg" /></a>
+          </section>
+
+          <section>
+            <h2>N / RP-N</h2>
+            <a href="https://www.showmecables.com/blog/post/coaxial-coax-connectors"><img style="width: 70%" src="images/n-rp-n.png" /></a>
+          </section>
+
+          <section>
+            <h2>SWR graph</h2>
+            <h3>Standing Wave Ratio</h3>
+            <img src="images/915.swr.png" /><br />
+           "standing wave ratio (SWR) is a measure of impedance matching of loads to the characteristic impedance of a transmission line or waveguide." - Wikipedia
+          </section>
+
+          <section>
+            <h2>just get something from rokland</h2>
+              (or anywhere that has nerdy graphs)
+          </section>
+
+          <section>
+            <h2>TX915-BLG-40</h2>
+            <img src="images/tx915-blg-40.png">
+          </section>
+
         </section>
 
         <section>
@@ -292,16 +364,18 @@
 
           <section>
             <h2>Muzi Works</h2>
+            <a href="muzi.works">muzi.works</a><br />
             <ul>
               <li>Based in Atlanta, GA</li>
               <li>Official for Heltec</li>
               <li>Pretty cases</li>
-              <li>Doesn't participate in our mesh</li>
+              <li>Doesn't participate in North Georgia mesh???</li>
             </ul>
           </section>
 
           <section>
             <h2>Rokland</h2>
+            <a href="https://store.rokland.com">store.rokland.com</a><br />
             <ul>
               <li>Based in Gainsville, FL</li>
               <li>Heltec, RAK, LilyGo</li>
@@ -311,11 +385,13 @@
 
           <section>
             <h2>Etsy</h2>
+            <a href="https://www.etsy.com/search?q=meshtastic">etsy.com</a></br />
             <ul>
               <li>3D printed cases</li>
               <li>fully assembled devices</li>
             </ul>
           </section>
+
         </section>
 
         <section>
